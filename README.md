@@ -1,4 +1,5 @@
 
+
 # Bonded
 > Bonded é um jogo de ação no estilo RPG shoot ’em up com elementos roguelike. Você controla uma princesa determinada a resgatar sua melhor amiga, um dragão que foi capturado. Para isso, deverá enfrentar hordas de inimigos e superar inúmeros desafios em sua jornada até o castelo onde ela está presa.
 <p align = "center">

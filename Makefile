@@ -4,8 +4,8 @@ CC = gcc
 # Flags de compilação
 CFLAGS = -Wall -Iinclude
 
-# Bibliotecas
-LIBS = -lraylib -lm
+# Bibliotecas necessárias (Raylib + dependências do Linux)
+LIBS = -lraylib -lm -lpthread -ldl -lGL -lX11
 
 # Diretórios
 SRC = src
@@ -31,4 +31,3 @@ run: $(BIN)
 # Para limpar arquivos compilados
 clean:
 	rm -f $(SRC)/*.o $(BIN)
-
