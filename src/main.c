@@ -22,7 +22,11 @@ typedef struct protagonista{
 
 
 int main() {
+<<<<<<< HEAD
    InitWindow(800, 600, "Bonded - MVP");
+=======
+    InitWindow(800, 600, "Bonded - MVP");
+>>>>>>> c1ac3d3 (Junção dos últimos 2 commits)
     InitAudioDevice();
     SetTargetFPS(60);
 
