@@ -22,29 +22,24 @@ typedef struct protagonista{
 
 
 int main() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-   InitWindow(800, 600, "Bonded - MVP");
-=======
+
+
     InitWindow(800, 600, "Bonded - MVP");
->>>>>>> c1ac3d3 (Junção dos últimos 2 commits)
-=======
+
     const int screenWidth = 800;
     const int screenHeight = 600;
     
     InitWindow(screenWidth, screenHeight, "Bonded - MVP");
->>>>>>> d94deb3 (Sisteminha de movimentação que será substituído pelo sprite do protagonista)
+
     InitAudioDevice();
     SetTargetFPS(60);
 
-    Vector2  = { (float)screenWidth/2, (float)screenHeight/2 }
+    Vector2  posicao_protagonista= { (float)screenWidth/2, (float)screenHeight/2 };
     
     Game *game = InitGame();
 
     while (!WindowShouldClose()) {
         UpdateGame(game);
-
-        if (game -> gameOver && IsKeyPressed(KEY_ENTER)){
 
         if (game->gameOver && IsKeyPressed(KEY_ENTER)) {
             Liberar_Game(game);
@@ -57,6 +52,7 @@ int main() {
         if (IsKeyDown(KEY_DOWN)) posicao_protagonista.y += 2.0f;
 
         BeginDrawing();
+        ClearBackground(RAYWHITE);
         Desenho_Game(game);
         DrawCircleV(posicao_protagonista, 50, RED);
         EndDrawing();
@@ -66,5 +62,5 @@ int main() {
     CloseAudioDevice();
     CloseWindow();
     return 0;
-}
+} 
 

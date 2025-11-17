@@ -1,5 +1,6 @@
 #include "fases.h"
 #include <stdlib.h>
+#include "raylib.h"
 
 Fase *CarregarFase(int id) {
     Fase *fase = malloc(sizeof(Fase));
@@ -12,8 +13,8 @@ Fase *CarregarFase(int id) {
         fase->playerStart = (Vector2){100, 300};
 
         // Cria alguns inimigos na floresta
-        Inimigo *novo1 = Criar_imimigos(400, 300);
-        Inimigo *novo2 = Criar_imimigos(600, 200);
+        Inimigo *novo1 = Criar_inimigo(400, 300);
+        Inimigo *novo2 = Criar_inimigo(600, 200);
         novo1->next = novo2;
         fase->inimigos = novo1;
     }
@@ -21,7 +22,7 @@ Fase *CarregarFase(int id) {
         fase->background = LoadTexture("assets/backgrounds/caverna.png"); //falta sprint
         fase->playerStart = (Vector2){80, 350};
 
-        Inimigo *novo1 = Criar_imimigos(500, 250);
+        Inimigo *novo1 = Criar_inimigo(500, 250);
         fase->inimigos = novo1;
     }
     else {
@@ -34,7 +35,11 @@ Fase *CarregarFase(int id) {
 }
 
 void AtualizarFase(Fase *fase, Vector2 playerPos) {
-    if (fase == NULL) return;
+    if (fase == NULL){
+        return;
+
+    }
+  
 
     mov_inimigos(fase->inimigos, playerPos);
 
@@ -45,7 +50,10 @@ void AtualizarFase(Fase *fase, Vector2 playerPos) {
 }
 
 void DesenharFase(Fase *fase) {
-    if (fase == NULL) return;
+    if (fase == NULL){
+        return;
+
+    } 
 
     // Desenha o fundo
     DrawTexture(fase->background, 0, 0, WHITE);

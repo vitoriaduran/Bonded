@@ -1,11 +1,12 @@
 # Compilador
 CC = gcc
 
-# Flags de compilação
-CFLAGS = -Wall -Iinclude
+# Flags de compilação (Inclui o caminho para headers)
+CFLAGS = -Wall -Iinclude -Iraylib/src
 
 # Bibliotecas necessárias (Raylib + dependências do Linux)
-LIBS = -lraylib -lm -lpthread -ldl -lGL -lX11
+# CORREÇÃO: Adiciona a flag -L para indicar onde a biblioteca (libraylib.a) está.
+LIBS = -Lraylib/src -lraylib -lm -lpthread -ldl -lGL -lX11
 
 # Diretórios
 SRC = src
@@ -21,6 +22,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(BIN)
 
 # Como compilar o executável
+# Agora, a variável LIBS inclui o caminho (-Lraylib/src)
 $(BIN): $(OBJS)
 	$(CC) $(OBJS) -o $(BIN) $(LIBS)
 
@@ -31,3 +33,4 @@ run: $(BIN)
 # Para limpar arquivos compilados
 clean:
 	rm -f $(SRC)/*.o $(BIN)
+

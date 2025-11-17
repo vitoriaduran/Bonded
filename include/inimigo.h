@@ -11,7 +11,7 @@ typedef struct Inimigo {
     struct Inimigo *next;
 } Inimigo;
 
-Inimigo *Criar_imimigos(float x, float y);
+Inimigo *Criar_inimigo(float x, float y);
 void mov_inimigos(Inimigo *head, Vector2 playerPos);
 void Desenho_inimigos(Inimigo *head);
 void add_inimigo(Inimigo **head);
