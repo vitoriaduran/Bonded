@@ -1,0 +1,17 @@
+CC = gcc
+CFLAGS = -Wall -Iinclude -IC:/raylib/raylib/src
+
+LIBS = -LC:/raylib/raylib/src -lraylib -lopengl32 -lgdi32 -lwinmm
+
+SRC = src
+OBJS = $(SRC)/fases.o $(SRC)/game.o $(SRC)/inimigo.o $(SRC)/inventario.o $(SRC)/main.o $(SRC)/player.o $(SRC)/save.o $(SRC)/tempo.o
+
+BIN = bonded.exe
+
+all: $(BIN)
+
+$(BIN): $(OBJS)
+	$(CC) $(OBJS) -o $(BIN) $(LIBS)
+
+clean:
+	del $(SRC)\*.o $(BIN)

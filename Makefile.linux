@@ -1,0 +1,31 @@
+# Compilador
+CC = gcc
+
+# Flags de compilação
+CFLAGS = -Wall -Iinclude -I/usr/local/include
+
+# Bibliotecas do Linux (Raylib instalada via make install)
+LIBS = -lraylib -lm -lpthread -ldl -lrt -lX11
+
+# Diretórios
+SRC = src
+BIN = bonded
+
+# Arquivos .c dentro de src
+SRCS = $(wildcard $(SRC)/*.c)
+OBJS = $(SRCS:.c=.o)
+
+# Regra padrão
+all: $(BIN)
+
+# Geração do executável
+$(BIN): $(OBJS)
+	$(CC) $(OBJS) -o $(BIN) $(LIBS)
+
+# Rodar o programa
+run: $(BIN)
+	./$(BIN)
+
+# Limpeza
+clean:
+	rm -f $(SRC)/*.o $(BIN)
