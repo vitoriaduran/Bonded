@@ -20,8 +20,8 @@ typedef struct protagonista{
 int main() {
 
 
-    const int screenWidth = 800;
-    const int screenHeight = 600;
+    const int screenWidth = 1280;
+    const int screenHeight = 720;
     
     InitWindow(screenWidth, screenHeight, "Bonded - MVP");
 
